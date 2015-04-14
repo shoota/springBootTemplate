@@ -1,14 +1,12 @@
 package org.anaguma;
 
-import org.anaguma.controller.IndexController;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-/**
- * Application end point
- */
+@SpringBootApplication
 public class App
 {
 	public static void main(String[] arguments) {
-		SpringApplication.run(IndexController.class, arguments);
+		SpringApplication.run(App.class, arguments);
 	}
 }
