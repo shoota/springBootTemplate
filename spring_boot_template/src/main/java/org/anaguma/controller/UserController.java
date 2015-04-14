@@ -13,10 +13,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @ComponentScan
 public class UserController {
 
-	@RequestMapping("/user")
-	@ResponseBody
-	public String home() {
-		return "user!";
-	}
-
+    @RequestMapping("/user")
+    @ResponseBody
+    public String show() {
+        return "user!";
+    }
 }

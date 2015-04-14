@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @ComponentScan
 public class IndexController {
 
-	@RequestMapping("/")
-	@ResponseBody
-	public String home() {
-		return "hello spring boot";
-	}
+    @RequestMapping("/")
+    @ResponseBody
+    public String home() {
+        return "hello spring boot";
+    }
 }
