@@ -22,6 +22,9 @@ public class UserService {
         return userRepo.findAll(req);
     }
 
+    public User save(User user) {
+        return userRepo.save(user);
+    }
 
 
 }

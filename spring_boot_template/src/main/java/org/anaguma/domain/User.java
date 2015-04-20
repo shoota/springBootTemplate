@@ -1,16 +1,18 @@
 package org.anaguma.domain;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 import lombok.Data;
 import lombok.ToString;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name="users")
@@ -23,9 +25,16 @@ public class User implements Serializable{
     @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
     private long id;
 
+    @NotEmpty
+    @Size(min = 1, max = 50)
     private String userName;
+
+    @NotEmpty
+    @Size(max = 64)
     private String password;
-    private Date   createAt;
-    private Date   updateAt;
+
+    // Delegate Data Base trigger
+//    private Date   createAt;
+//    private Date   updateAt;
 
 }
