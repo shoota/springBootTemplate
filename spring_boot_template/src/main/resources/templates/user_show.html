@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello Spring Boot!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<p>Hello Spring Boot!</p>
+</body>
+<p th:text="${message}">message</p>
+
+
+<table>
+<tr th:each="user : ${users}">
+ <td th:text="${user.userName}"></td>
+</tr>
+</table>
+
+</html>
