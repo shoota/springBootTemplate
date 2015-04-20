@@ -4,3 +4,6 @@ spring:
     username: springuser
     password: springuser
     driverClassName: org.postgresql.Driver
+
+hibernate:
+  dialect: org.hibernate.dialect.PostgreSQLDialect

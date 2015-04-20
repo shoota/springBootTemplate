@@ -1,5 +1,6 @@
 package org.anaguma.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -15,7 +16,9 @@ import lombok.ToString;
 @Table(name="users")
 @Data
 @ToString
-public class User {
+public class User implements Serializable{
+
+    private static final long serialVersionUID = -1233274848853911489L;
 
     @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
     private long id;

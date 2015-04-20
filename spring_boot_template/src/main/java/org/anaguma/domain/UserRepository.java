@@ -2,10 +2,8 @@ package org.anaguma.domain;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.repository.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends Repository<User, Long> {
-
+public interface UserRepository extends JpaRepository<User, Long> {
     Page<User> findAll(Pageable pageable);
-
 }
