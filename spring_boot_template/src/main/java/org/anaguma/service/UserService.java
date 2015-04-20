@@ -2,6 +2,7 @@ package org.anaguma.service;
 
 import org.anaguma.domain.User;
 import org.anaguma.domain.UserRepository;
+import org.anaguma.exception.IllegalBussinessLogicException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@Transactional
+@Transactional(rollbackFor=Exception.class)
 public class UserService {
 
     @Autowired
@@ -22,8 +23,13 @@ public class UserService {
         return userRepo.findAll(req);
     }
 
-    public User save(User user) {
-        return userRepo.save(user);
+    public User save(User user) throws IllegalBussinessLogicException{
+        User saved = userRepo.save(user);
+        // 特定のユーザ名の場合ロールバックする
+        if(user.getUserName().equals("admin")) {
+            throw new IllegalBussinessLogicException("illegal user name");
+        }
+        return saved;
     }
 
 
