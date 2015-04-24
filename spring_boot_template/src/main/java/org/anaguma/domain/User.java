@@ -22,9 +22,10 @@ public class User implements Serializable{
 
     private static final long serialVersionUID = -1233274848853911489L;
 
-    @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private long id;
 
+    @Id
     @NotEmpty
     @Size(min = 1, max = 50)
     private String userName;
@@ -33,7 +34,9 @@ public class User implements Serializable{
     @Size(max = 64)
     private String password;
 
-    // Delegate Data Base trigger
+    private Boolean enabled;
+
+// Delegate Data Base trigger
 //    private Date   createAt;
 //    private Date   updateAt;
 
