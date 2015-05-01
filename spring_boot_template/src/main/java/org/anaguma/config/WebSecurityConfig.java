@@ -1,4 +1,4 @@
-package org.anaguma;
+package org.anaguma.config;
 
 import javax.sql.DataSource;
 
