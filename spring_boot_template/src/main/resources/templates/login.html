@@ -9,7 +9,9 @@
             <div class="form-group" th:if="${session['SPRING_SECURITY_LAST_EXCEPTION']} != null">
               <p class="form-control-static text-danger" th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}"></p>
             </div>
-            <div><label> User Name : <input type="text" name="userName"/> </label></div>
+            <div><label> User Name :
+                 <input type="text" name="userName" th:value="${session['SPRING_SECURITY_LAST_EXCEPTION']} != null ? ${session['SPRING_SECURITY_LAST_EXCEPTION'].authentication.principal} : ''" />
+                 </label></div>
             <div><label> Password: <input type="password" name="password"/> </label></div>
             <div><input type="submit" value="Sign In"/></div>
         </form>
